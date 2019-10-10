@@ -33,7 +33,7 @@ custom_constants/margin_bottom = 120
 margin_left = 120.0
 margin_top = 120.0
 margin_right = 1800.0
-margin_bottom = 1062.0
+margin_bottom = 960.0
 size_flags_vertical = 3
 custom_constants/separation = 50
 
