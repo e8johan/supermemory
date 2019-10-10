@@ -122,10 +122,15 @@ func init_game():
 		var last_row_empty = (cols - (card_count % cols))
 		last_row_margin = (last_row_empty*row_width)/2
 
+	# Pick out random faces
+	var numbers : Array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
+	while numbers.size() > card_count / 2:
+		numbers.remove(randi()%numbers.size())
+
 	# Populate faces array
 	var faces : Array = []
 	for i in range(floor(card_count / 2)):
-		var face : String = "kort-" + str(i+1)
+		var face : String = "kort-" + str(numbers[i])
 		faces.append(face)
 		faces.append(face)
 	
