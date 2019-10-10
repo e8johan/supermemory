@@ -17,6 +17,8 @@ _global_script_class_icons={
 
 config/name="Memory"
 run/main_scene="res://table.tscn"
+boot_splash/image="res://images/start-screen.png"
+boot_splash/bg_color=Color( 0.498039, 0, 0, 1 )
 config/icon="res://images/baksida.png"
 
 [display]
