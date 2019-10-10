@@ -11,10 +11,10 @@ func _ready():
 
 func set_points(p : int) -> void:
 	points = p
-	$MarginContainer/VBoxContainer/PointsLabel.text = str(points) + " poäng"
+	$MarginContainer/VBoxContainer/PointsLabel.text = str(points) + " " + tr("poäng")
 	
 func _on_play_again_clicked():
 	emit_signal("playagain")
 
 func _on_menu_clicked():
-	emit_signal("menu")
+	emit_signal("menu")	
