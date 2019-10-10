@@ -7,12 +7,13 @@ onready var card_prefab = preload("res://card.tscn")
 onready var gui = $GUI
 onready var timer = $Timer
 onready var menu = $Menu
+onready var about = $About
 onready var endgame = $EndGame
 
 var _flipped_card = null
 var _unflips = []
 
-enum Screens { Game, Menu, EndGame }
+enum Screens { Game, Menu, About, EndGame }
 
 func _ready():
 	randomize()
@@ -23,6 +24,9 @@ func _ready():
 	
 	menu.connect("play", self, "_on_menu_play")
 	menu.connect("quit", self, "_on_menu_quit")
+	menu.connect("about", self, "_on_menu_about")
+	
+	about.connect("back", self, "_on_about_back")
 	
 	endgame.connect("playagain", self, "_on_menu_play")
 	endgame.connect("menu", self, "_on_endgame_menu")
@@ -32,19 +36,33 @@ func set_screen(screen):
 		Screens.Game:
 			gui.show()
 			menu.hide()
+			about.hide()
 			endgame.hide()
 		Screens.Menu:
 			gui.hide()
 			menu.show()
+			about.hide()
+			endgame.hide()
+		Screens.About:
+			gui.hide()
+			menu.hide()
+			about.show()
 			endgame.hide()
 		Screens.EndGame:
 			gui.hide()
 			menu.hide()
+			about.hide()
 			endgame.show()
 
 func _on_menu_play():
 	set_screen(Screens.Game)
 	init_game()
+
+func _on_menu_about():
+	set_screen(Screens.About)
+	
+func _on_about_back():
+	set_screen(Screens.Menu)
 	
 func _on_menu_quit():
 	get_tree().quit()
